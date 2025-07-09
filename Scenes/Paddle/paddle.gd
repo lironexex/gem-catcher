@@ -28,3 +28,6 @@ func _process(delta: float) -> void:
 		MIN_X_VALUE,
 		MAX_X_VALUE
 	)
+
+func _on_paddle_area_entered(area: Area2D) -> void:
+	print("collision ", area)
