@@ -24,3 +24,7 @@ position = Vector2(165, -34)
 
 [node name="Gem3" parent="." instance=ExtResource("3_xbxml")]
 position = Vector2(970, 52)
+
+[connection signal="gem_off_screen" from="Gem" to="." method="_on_gem_off_screen"]
+[connection signal="gem_off_screen" from="Gem2" to="." method="_on_gem_off_screen"]
+[connection signal="gem_off_screen" from="Gem3" to="." method="_on_gem_off_screen"]
