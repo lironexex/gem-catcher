@@ -2,7 +2,7 @@ extends Area2D
 
 class_name Gem
 
-const INITIAL_SPEED: float = 100.0 
+const INITIAL_SPEED: float = 200.0 
 var END_OF_SCREEN_Y: float
 
 signal gem_off_screen

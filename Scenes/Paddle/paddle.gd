@@ -1,6 +1,6 @@
 extends Area2D
 
-const INITIAL_PADDLE_SPEED: float = 300.0
+const INITIAL_PADDLE_SPEED: float = 400.0
 var MIN_X_VALUE: float
 var MAX_X_VALUE: float
 #const MIN_X_VALUE = get_viewport_rect().position.x

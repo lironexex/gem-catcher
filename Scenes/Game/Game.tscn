@@ -15,8 +15,8 @@ texture = ExtResource("1_gwu2e")
 [node name="Paddle" parent="." instance=ExtResource("2_gwu2e")]
 position = Vector2(549, 620)
 
-[node name="Timer" type="Timer" parent="."]
+[node name="SpawnTimer" type="Timer" parent="."]
 wait_time = 2.0
 autostart = true
 
-[connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]
+[connection signal="timeout" from="SpawnTimer" to="." method="_on_timer_timeout"]
