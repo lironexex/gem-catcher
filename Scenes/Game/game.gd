@@ -10,9 +10,19 @@ var END_OF_SCREEN_X: float
 @onready var paddle: Area2D = $Paddle
 @onready var score_sound: AudioStreamPlayer2D = $ScoreSound
 @onready var sound: AudioStreamPlayer = $Sound
+@onready var score_label: Label = $ScoreLabel
+
+var _score: int = 0
+
+func _init() -> void:
+	print("Game:: _init")
+	
+func _enter_tree() -> void:
+	print("Game:: _enter_tree")
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
+	print("Game:: _ready")
 	START_OF_SCREEN_X = get_viewport_rect().position.x
 	END_OF_SCREEN_X = get_viewport_rect().end.x
 	spawn_gem()
@@ -44,6 +54,14 @@ func _process(delta: float) -> void:
 func _on_gem_off_screen() -> void:
 	stop_all()
 	print("Game:: _on_gem_off_screen Game Over")
+
+func _on_paddle_area_entered(area: Area2D) -> void:
+	_score += 1
+	score_label.text = "%06d" % _score
+	print("collision ", area)
+	if score_sound.playing == false:
+		score_sound.position = area.position
+		score_sound.play()
 
 
 func _on_timer_timeout() -> void:

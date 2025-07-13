@@ -1,15 +1,20 @@
 extends Area2D
 
-@onready var score_sound: AudioStreamPlayer2D = $"../ScoreSound"
-
 const INITIAL_PADDLE_SPEED: float = 400.0
 var MIN_X_VALUE: float
 var MAX_X_VALUE: float
 #const MIN_X_VALUE = get_viewport_rect().position.x
 #const MAX_X_VALUE = get_viewport_rect().end.x
 
+func _init() -> void:
+	print("Paddle:: _init")
+	
+func _enter_tree() -> void:
+	print("Paddle:: _enter_tree")
+
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
+	print("Paddle:: _ready")
 	MIN_X_VALUE = get_viewport_rect().position.x
 	MAX_X_VALUE = get_viewport_rect().end.x
 	pass # Replace with function body.
@@ -30,9 +35,3 @@ func _process(delta: float) -> void:
 		MIN_X_VALUE,
 		MAX_X_VALUE
 	)
-
-func _on_paddle_area_entered(area: Area2D) -> void:
-	print("collision ", area)
-	if score_sound.playing == false:
-		score_sound.position = area.position
-		score_sound.play()
