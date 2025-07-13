@@ -1,6 +1,6 @@
 extends Node2D
 
-
+const EXPLODE = preload("res://assets/explode.wav")
 const GEM = preload("res://Scenes/Gem/gem.tscn")
 const MARGIN: float = 70.0
 var START_OF_SCREEN_X: float
@@ -8,6 +8,8 @@ var END_OF_SCREEN_X: float
 
 @onready var spawn_timer: Timer = $SpawnTimer
 @onready var paddle: Area2D = $Paddle
+@onready var score_sound: AudioStreamPlayer2D = $ScoreSound
+@onready var sound: AudioStreamPlayer = $Sound
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
@@ -26,6 +28,9 @@ func spawn_gem() -> void:
 	add_child(new_gem)
 
 func stop_all() -> void:
+	sound.stop()
+	sound.stream = EXPLODE
+	sound.play()
 	spawn_timer.stop()
 	paddle.set_process(false)
 	for child in get_children():

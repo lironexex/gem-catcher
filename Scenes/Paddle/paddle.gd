@@ -1,5 +1,7 @@
 extends Area2D
 
+@onready var score_sound: AudioStreamPlayer2D = $"../ScoreSound"
+
 const INITIAL_PADDLE_SPEED: float = 400.0
 var MIN_X_VALUE: float
 var MAX_X_VALUE: float
@@ -31,3 +33,6 @@ func _process(delta: float) -> void:
 
 func _on_paddle_area_entered(area: Area2D) -> void:
 	print("collision ", area)
+	if score_sound.playing == false:
+		score_sound.position = area.position
+		score_sound.play()
