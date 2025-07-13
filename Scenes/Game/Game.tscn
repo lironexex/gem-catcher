@@ -45,5 +45,24 @@ theme_override_constants/shadow_outline_size = 3
 theme_override_font_sizes/font_size = 48
 text = "000000"
 
+[node name="DarkOverlay" type="ColorRect" parent="."]
+visible = false
+offset_left = -110.0
+offset_top = -46.0
+offset_right = 1198.0
+offset_bottom = 678.0
+color = Color(0, 0, 0, 0.513726)
+
+[node name="GameOverLabel" type="Label" parent="."]
+visible = false
+offset_left = 159.0
+offset_top = 224.0
+offset_right = 973.0
+offset_bottom = 429.0
+theme_override_colors/font_color = Color(1, 0, 0, 1)
+theme_override_font_sizes/font_size = 150
+text = "Game Over"
+horizontal_alignment = 1
+
 [connection signal="area_entered" from="Paddle" to="." method="_on_paddle_area_entered"]
 [connection signal="timeout" from="SpawnTimer" to="." method="_on_timer_timeout"]

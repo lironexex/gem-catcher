@@ -11,6 +11,8 @@ var END_OF_SCREEN_X: float
 @onready var score_sound: AudioStreamPlayer2D = $ScoreSound
 @onready var sound: AudioStreamPlayer = $Sound
 @onready var score_label: Label = $ScoreLabel
+@onready var dark_overlay: ColorRect = $DarkOverlay
+@onready var game_over_label: Label = $GameOverLabel
 
 var _score: int = 0
 
@@ -54,6 +56,8 @@ func _process(delta: float) -> void:
 func _on_gem_off_screen() -> void:
 	stop_all()
 	print("Game:: _on_gem_off_screen Game Over")
+	dark_overlay.visible = true
+	game_over_label.visible = true
 
 func _on_paddle_area_entered(area: Area2D) -> void:
 	_score += 1
