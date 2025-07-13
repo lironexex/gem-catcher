@@ -7,8 +7,15 @@ var END_OF_SCREEN_Y: float
 
 signal gem_off_screen
 
+func _init() -> void:
+	print("Gem:: _init")
+
+func _enter_tree() -> void:
+	print("Gem:: _enter_tree")
+
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
+	print("Gem:: _ready")
 	END_OF_SCREEN_Y = get_viewport_rect().end.y
 	pass # Replace with function body.
 
